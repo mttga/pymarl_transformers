@@ -1,0 +1,46 @@
+# --- QMix with a Transformer agent ---
+
+# use epsilon greedy action selector
+action_selector: "epsilon_greedy"
+epsilon_start: 1.0
+epsilon_finish: 0.05
+epsilon_anneal_time: 100000 
+
+runner: "episode"
+buffer_size: 5000 
+batch_size: 32
+
+# update the target network every {} episodes
+target_update_interval: 200
+
+# parameters of the transformer agent
+mac: "n_mac"
+agent: "n_transf"
+agent_output_type: q
+emb: 32 # embedding dimension of transformer
+heads: 4 # head number of transformer
+depth: 2 # block number of transformer
+ff_hidden_mult: 4 # relative dimension of hidden layer of ff after attention
+dropout: 0 # multi-head attention dropout
+
+# parameters of the mixer
+mixer: "qmix"
+mixing_embed_dim: 32
+hypernet_embed: 64
+q_lambda: False
+
+# paramters for the learner 
+learner: "nq_learner"
+weight_decay: 0
+optimizer: "adam"
+lr: 0.001
+td_lambda: 0.6
+
+# to keep the token dimension fixed, observaion id and last action should not be included
+obs_agent_id: False # Include the agent's one_hot id in the observation
+obs_last_action: False # Include the agent's last action (one_hot) in the observation
+env_args:
+  obs_entity_mode: True
+  state_entity_mode: False
+
+name: "qmix_transf_agent"

@@ -1,0 +1,27 @@
+env: "mpe"
+
+env_args:
+  key: simple_spread
+  map_name: ""
+  num_agents: 3
+  num_landmarks: 3
+  time_limit: 25
+  reward_discrete: False
+  reward_rendundant: False # original reward function
+
+standardise_returns: False
+standardise_rewards: False
+
+#logs 
+save_animation: True
+use_tensorboard: True
+local_results_path: "results_spread"
+test_greedy: True
+test_nepisode: 30
+test_interval: 40000
+log_interval: 40000
+animation_interval: 500000
+animation_interval_evaluation: 100 # only for evaluate mode
+runner_log_interval: 40000
+learner_log_interval: 40000
+t_max: 2050000
