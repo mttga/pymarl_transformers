@@ -54,7 +54,6 @@ Take in mind:
     - For the mixer: the first entity features must be relative to the agents and must follow the same order of the agents q-values. The codebase puts the agents always in the same order, so this should not be a problem. 
 
 ***
-***
 
 ## Varia
 
