@@ -61,6 +61,6 @@ Take in mind:
 2. If you're using policy decoupling in a new environment, it is recommended that you add a new environment-specific transformer agent in order to menage the output layers. You can use [SC2 agent](src/modules/agents/n_transf_agent_smac.py) as a base. You would need only to change the output layers, the way in which the entity-based-action embeddings are extracted from the output of the transformer, and add your agent in the [agent registry](src/modules/agents/__init__.py). In future version this could parametrized, but for now this is the easiest way to go. If you're not using  policy decoupling, you can use the [standard transformer agent](src/modules/agents/n_transf_agent.py).
 3. This codebase includes a [matplotlib](src/envs/mpe/animate/pyplot_animator.py)-based and a [plolty](src/envs/mpe/animate/plotly_animator.py)-based animation classes for the MPE environment, which allow to generate customized gifs at the end of an episode. You can get inspired from them to generate animations of your environment in a simpler way than using gym. Here is an example for 6v6 Spread:
 
-![spread_5v5](images/animation_spread_5v5.gif)
+![spread_5v5](https://s9.gifyu.com/images/animation_5v5.gif)
 
 4. If you have problems removing one of the "results" folder created with docker, you can run ```sudo docker run --rm -v $(pwd):/app -w /app alpine rm -rf results```
