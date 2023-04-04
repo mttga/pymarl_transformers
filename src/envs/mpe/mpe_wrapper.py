@@ -1,68 +1,14 @@
 import importlib
 from .environment import MultiAgentEnv
-import gym
-from gym import ObservationWrapper, spaces
 from gym.spaces import flatdim
 import numpy as np
-from gym.wrappers import TimeLimit as GymTimeLimit
+from envs.common_wrappers import TimeLimit, FlattenObservation
 
 try:
     from .animate.plotly_animator import MPEAnimator
 except:
     from .animate.pyplot_animator import MPEAnimator
     print('Using matplotlib to save the animation because plolty is not available')
-
-
-class TimeLimit(GymTimeLimit):
-    def __init__(self, env, max_episode_steps=None):
-        super().__init__(env)
-        if max_episode_steps is None and self.env.spec is not None:
-            max_episode_steps = env.spec.max_episode_steps
-        # if self.env.spec is not None:
-        #     self.env.spec.max_episode_steps = max_episode_steps
-        self._max_episode_steps = max_episode_steps
-        self._elapsed_steps = None
-
-    def step(self, action):
-        assert (
-            self._elapsed_steps is not None
-        ), "Cannot call env.step() before calling reset()"
-        observation, reward, done, info = self.env.step(action)
-        self._elapsed_steps += 1
-        if self._elapsed_steps >= self._max_episode_steps:
-            info["TimeLimit.truncated"] = not all(done)
-            done = len(observation) * [True]
-        return observation, reward, done, info
-
-
-class FlattenObservation(ObservationWrapper):
-    r"""Observation wrapper that flattens the observation of individual agents."""
-
-    def __init__(self, env):
-        super(FlattenObservation, self).__init__(env)
-
-        ma_spaces = []
-
-        for sa_obs in env.observation_space:
-            flatdim = spaces.flatdim(sa_obs)
-            ma_spaces += [
-                spaces.Box(
-                    low=-float("inf"),
-                    high=float("inf"),
-                    shape=(flatdim,),
-                    dtype=np.float32,
-                )
-            ]
-
-        self.observation_space = spaces.Tuple(tuple(ma_spaces))
-
-    def observation(self, observation):
-        return tuple(
-            [
-                spaces.flatten(obs_space, obs)
-                for obs_space, obs in zip(self.env.observation_space, observation)
-            ]
-        )
 
 
 class MPEWrapper(MultiAgentEnv):
@@ -249,16 +195,29 @@ class MPEWrapper(MultiAgentEnv):
 
     def get_stats(self):
         return {}
-
+    
     def get_env_info(self):
         env_info = {
             "state_shape": self.get_state_size(),
             "obs_shape": self.get_obs_size(),
-            "obs_entity_feats": self.obs_entity_feats,
-            "state_entity_feats": self.state_entity_feats,
             "n_actions": self.get_total_actions(),
             "n_agents": self.n_agents,
-            "n_entities": self.n_entities,
             "episode_limit": self.episode_limit
         }
+        for x in [
+            "obs_entity_feats",
+            "state_entity_feats",
+            "n_entities",
+            "n_entities_obs",
+            "n_entities_state"
+        ]:
+            self.check_add_attribute(env_info, x)
         return env_info
+    
+    def check_add_attribute(self, info, attribute):
+        if hasattr(self, attribute):
+            info[attribute] = getattr(self, attribute)
+        elif attribute in {"n_entities_obs", "n_entities_state"}: 
+            pass 
+        else:
+            logging.warning(f"To use transformers you should define the {attribute} attribute in your environment __init__")

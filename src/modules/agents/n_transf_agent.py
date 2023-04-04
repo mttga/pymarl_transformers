@@ -11,8 +11,13 @@ class TransformerAgent(nn.Module):
 
         self.args = args
         self.n_agents   = args.n_agents
-        self.n_entities = args.n_entities
-        self.feat_dim  = args.obs_entity_feats
+        # get the number of entities for the agent if specified, otherwise use n_entities
+        self.n_entities = getattr(
+            self.args,
+            "n_entities_obs",
+            self.args.n_entities
+        )
+        self.feat_dim   = args.obs_entity_feats
         self.emb_dim    = args.emb
 
         # embedder

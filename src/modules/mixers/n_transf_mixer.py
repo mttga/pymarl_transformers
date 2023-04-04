@@ -15,7 +15,12 @@ class TransformerMixer(nn.Module):
 
         self.args = args
         self.n_agents = args.n_agents
-        self.n_entities = args.n_entities
+        # get the number of entities for the mixer if specified, otherwise use n_entities
+        self.n_entities = getattr(
+            self.args,
+            "n_entities_state",
+            self.args.n_entities
+        )
         self.feat_dim   = args.state_entity_feats
         self.emb_dim    = args.mixer_emb
 
