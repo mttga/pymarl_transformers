@@ -122,7 +122,7 @@ London, 1st June 2023
 - Information usually come from multiple sources: *observed entities, different sensors, communication channels.*
 - Agents can differentiate between information channels, because they occupy always the **same vector positions**. 
 
-![bg right fit](images/trad_obs_vector.svg)
+![bg right fit](presentation/images/trad_obs_vector.svg)
 
 <!-- if agents can differentiate between information sources, why not to process them coherently  -->
 ---
@@ -135,7 +135,7 @@ London, 1st June 2023
   - Edges -> ...
 - Self-Attention can be used to learn the edges of the latent graph ([Li et al., 2021](https://arxiv.org/abs/2006.11438)).
 
-![bg right fit](images/entity_obs_vector.svg)
+![bg right fit](presentation/images/entity_obs_vector.svg)
 
 ---
 
