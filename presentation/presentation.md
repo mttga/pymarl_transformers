@@ -81,6 +81,12 @@ div.twocols p.break {
 
 <!-- class: invert -->
 
+# TODO:
+1. Add UPC icons in first page.
+2. Add European Horizon and Marie Curie aknoweldgement
+
+---
+
 # TransfQMix: Transformers for Leveraging the Graph Structure of Multi-Agent Reinforcement Learning Problems
 
 #### Matteo Gallici, Mario Martin, Ivan Masmitja
@@ -91,17 +97,6 @@ AAMAS 2023
 London, 1st June 2023
 
 
----
-<!-- class: -->
-## List of contents
-1. Motivations
-2. Related works
-3. Proposed methods
-4. Experiments
-5. Summary and future work
-
-
-
 --- 
 <!-- class: invert -->
 <!-- paginate: false -->
@@ -110,8 +105,50 @@ London, 1st June 2023
 <!-- class: -->
 <!-- paginate: true -->
 
+
+## How are the observations and states vectors built?
+
+
+- State-of-the-art approaches in MARL (MADDPG, VDN, QTran, QMix, QPlex, MAPPO, DICG) **focus on the learning architecture.** 
+
+- No looking into observations and states: concatenations of features feeded to NNs.
+
+- Where those features come from?
+
 ---
 
+## Information Channels
+
+- Information usually come from multiple sources: *observed entities, different sensors, communication channels.*
+- Agents can differentiate between information channels, because they occupy always the **same vector positions**. 
+
+![bg right fit](images/trad_obs_vector.svg)
+
+<!-- if agents can differentiate between information sources, why not to process them coherently  -->
+---
+
+## Entities features
+
+- Often, a subset of **identical** features describe different the observed entities.
+- **This is a graph structure!**
+  - Vertices -> entities features
+  - Edges -> ...
+- Self-Attention can be used to learn the edges of the latent graph ([Li et al., 2021](https://arxiv.org/abs/2006.11438)).
+
+![bg right fit](images/entity_obs_vector.svg)
+
+---
+
+## Observations and State Matrices
+
+
+
+--- 
+
+## Additional features
+
+- Some information get lost when dropping concatenation: which of entities represent "me"? Which of the others represent "team mates"?
+- IS SELF, IS AGENT
 
 --- 
 <!-- class: invert -->
