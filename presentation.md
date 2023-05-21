@@ -92,7 +92,7 @@ London, 1st June 2023
 <br>
 
 <center>
-<img src="presentation/images/logo_upc.png" style="width:50px; margin-right:40px;">
+<img src="presentation/images/Logo_UPC.svg" style="width:50px; margin-right:40px;">
 <img src="presentation/images/logo-icm-color.svg" style="width:150px; margin-right:40px;">
 <img src="presentation/images/logo-so-color.svg" style="width:120px; margin-right:40px;">
 <img src="presentation/images/BSC-blue.svg" style="width:200px;">
@@ -591,5 +591,23 @@ SC2: **learning can be speeded up by transferring a learned policy.**
 ## Ablation
 
 <center>
-<img src="presentation/images/ablation_study.png" style="width:900px">
+<div class="row">
+
+<div class="column">
+
+<img src="presentation/images/ablation_5m_vs_6m.svg" style="width:300px">
+
+SC2: 5m_vs_6m
+
+</div>
+
+<div class="column">
+
+<img src="presentation/images/ablation_spread_6v6.svg" style="width:300px">
+
+Spread: 6v6
+
+</div>
+
+</div>
 </center>
