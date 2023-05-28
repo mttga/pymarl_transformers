@@ -15,7 +15,7 @@
     body {
         max-width: 1200px; /* Set the max-width as per your requirement */
         margin: 0 auto;
-        padding: 0 20px; /* Optional: Adding a bit of padding so content is not stuck to the edge on smaller screens */
+        padding: 0 5px; /* Optional: Adding a bit of padding so content is not stuck to the edge on smaller screens */
     }
 
     .header {
@@ -77,6 +77,34 @@
 
     .button:hover {
         background-color: #46539c;
+    }
+
+    /* Add media queries for smaller screens */
+    @media screen and (max-width: 600px) {
+        body {
+            padding: 0 10px;
+        }
+
+        .container p {
+            font-size: 14px; /* Reduce the font size on smaller screens */
+            width: 90%; /* This will make the paragraph full width on small screens */
+        }
+
+        .button {
+            width: auto; /* This will allow the button to fit its content */
+            height: auto;
+            padding: 10px 10px;
+            width: 80px;
+            font-size: 0.7em;
+        }
+
+        .header h1 {
+            font-size: 1.5em; /* Reduce the font size on smaller screens */
+        }
+
+        .header h2, .header h3 {
+            font-size: 1em; /* Reduce the font size on smaller screens */
+        }
     }
 
     </style>
