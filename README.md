@@ -1,3 +1,8 @@
+[![arXiv](https://img.shields.io/badge/arXiv-2301.05334-b31b1b.svg)](https://arxiv.org/abs/2301.05334)
+[![Homepage](https://img.shields.io/badge/Project-Homepage-0077B5.svg)](https://mttga.github.io/pymarl_transformers/)
+[![Poster](https://img.shields.io/badge/View-Poster-008037.svg)](https://mttga.github.io/pymarl_transformers/poster/index.html)
+[![Presentation](https://img.shields.io/badge/View-Presentation-FFD700.svg)](https://mttga.github.io/pymarl_transformers/presentation/index.html)
+
 # TransfQMix
 
 Official repository of the [AAMAS 2023](https://aamas2023.soton.ac.uk/) paper: [TransfQMix: Transformers for Leveraging the Graph Structure of
@@ -73,10 +78,15 @@ Take in mind:
 If you use this codebase please cite:
 
 ```
-@article{gallici2023transfqmix,
-  title={TransfQMix: Transformers for Leveraging the Graph Structure of Multi-Agent Reinforcement Learning Problems},
-  author={Gallici, Matteo and Martin, Mario and Masmitja, Ivan},
-  journal={arXiv preprint arXiv:2301.05334},
-  year={2023}
+@inproceedings{10.5555/3545946.3598825,
+author = {Gallici, Matteo and Martin, Mario and Masmitja, Ivan},
+title = {TransfQMix: Transformers for Leveraging the Graph Structure of Multi-Agent Reinforcement Learning Problems},
+year = {2023},
+publisher = {International Foundation for Autonomous Agents and Multiagent Systems},
+address = {Richland, SC},
+booktitle = {Proceedings of the 2023 International Conference on Autonomous Agents and Multiagent Systems},
+pages = {1679–1687},
+location = {London, United Kingdom},
+series = {AAMAS '23}
 }
 ```
