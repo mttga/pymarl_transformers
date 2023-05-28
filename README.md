@@ -73,10 +73,15 @@ Take in mind:
 If you use this codebase please cite:
 
 ```
-@article{gallici2023transfqmix,
-  title={TransfQMix: Transformers for Leveraging the Graph Structure of Multi-Agent Reinforcement Learning Problems},
-  author={Gallici, Matteo and Martin, Mario and Masmitja, Ivan},
-  journal={arXiv preprint arXiv:2301.05334},
-  year={2023}
+@inproceedings{10.5555/3545946.3598825,
+author = {Gallici, Matteo and Martin, Mario and Masmitja, Ivan},
+title = {TransfQMix: Transformers for Leveraging the Graph Structure of Multi-Agent Reinforcement Learning Problems},
+year = {2023},
+publisher = {International Foundation for Autonomous Agents and Multiagent Systems},
+address = {Richland, SC},
+booktitle = {Proceedings of the 2023 International Conference on Autonomous Agents and Multiagent Systems},
+pages = {1679–1687},
+location = {London, United Kingdom},
+series = {AAMAS '23}
 }
 ```
