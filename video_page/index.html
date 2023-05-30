@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransfQMix Videos</title>
+    <!-- Include your existing CSS -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+    
+        * {
+            font-family: 'Open Sans', sans-serif;
+        }
+    
+        body {
+            max-width: 2000px; /* Set the max-width as per your requirement */
+            margin: 0 auto;
+            padding: 0 5px; /* Optional: Adding a bit of padding so content is not stuck to the edge on smaller screens */
+        }
+    
+        .header {
+            background-color: #F8F8FF;
+            border: 2px solid #a9b4c2;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+        }
+    
+        .header h1 {
+            color: #2b3469;
+            margin: 0; 
+            font-weight: 700;
+        }
+    
+        .container {
+            border: 2px solid #a9b4c2;
+            background-color: #2b3469;
+            padding: 10px;
+            border-radius: 10px 10px 10px 10px;
+            margin: 10px;
+            position: relative;
+            font-size: 17px;
+            font-weight: 500;
+            color: #e1e5fb;
+        }
+    
+        .container h2 {
+            font-weight: 500;
+        }
+    
+        .container p {
+            text-align: justify;
+            text-justify: inter-word;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+        .button {
+            display: inline-block;
+            background-color: #2b3469;
+            color: #e1e5fb;
+            padding: 15px 25px;
+            margin: 20px;
+            font-size: 1.1em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100px;  /* Adjust to desired width */
+            height: 30px; /* Adjust to desired height */
+            text-align: center;
+            line-height: 30px; /* Adjust to desired line height */
+        }
+    
+        .button:hover {
+            background-color: #46539c;
+        }
+    
+        /* Add media queries for smaller screens */
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 0 10px;
+            }
+    
+            .container p {
+                font-size: 14px; /* Reduce the font size on smaller screens */
+                width: 90%; /* This will make the paragraph full width on small screens */
+            }
+    
+            .button {
+                width: auto; /* This will allow the button to fit its content */
+                height: auto;
+                padding: 10px 10px;
+                width: 80px;
+                font-size: 0.7em;
+            }
+    
+            .header h1 {
+                font-size: 1.5em; /* Reduce the font size on smaller screens */
+            }
+    
+            .header h2, .header h3 {
+                font-size: 1em; /* Reduce the font size on smaller screens */
+            }
+        }
+
+        .video-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .video-column {
+            flex: 1;
+            text-align: center;
+            margin: 10px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .column-title {
+            color: #e1e5fb;
+            font-size: 1.2em;
+        }
+
+        .row-title {
+            color: #a9b4c2;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="color: #2b3469;">TransfQMix Videos</h1>
+        <h2 style="color: #2C4A67; margin-top: 2pt;">Matteo Gallici, Mario Martín, Ivan Masmitja</h2>
+        <h3 style="color:  #5763a6; margin-top: -10pt;">KEMLG Research Group, Universitat Politècnica de Catalunya, and Institut de Ciències del Mar (ICM-CSIC)</h3>
+        <h3 style="color:  #5763a6; margin-top: -10pt;">AAMAS 20223</h3>
+        <p style="color: #2b3469;">Contact: <a href="mailto:gallici@cs.upc.edu">gallici@cs.upc.edu</a></p>
+    </div>
+    <div class="container">
+        <h2 class="row-title">Spread 3v3</h2>
+        <div class="video-row">
+            <div class="video-column">
+                <h3 class="column-title">QMix</h3>
+                <img src="../videos/qmix_3v3.gif" alt="qmix_3v3">
+            </div>
+            <div class="video-column">
+                <h3 class="column-title">TransfQMix</h3>
+                <img src="../videos/transf_3v3.gif" alt="transf_3v3">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="row-title">Spread 4v4</h2>
+        <div class="video-row">
+            <div class="video-column">
+                <h3 class="column-title">QMix</h3>
+                <img src="../videos/qmix_4v4.gif" alt="qmix_3v3">
+            </div>
+            <div class="video-column">
+                <h3 class="column-title">TransfQMix</h3>
+                <img src="../videos/transf_4v4.gif" alt="transf_3v3">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="row-title">Spread 5v5</h2>
+        <div class="video-row">
+            <div class="video-column">
+                <h3 class="column-title">QMix</h3>
+                <img src="../videos/qmix_5v5.gif" alt="qmix_3v3">
+            </div>
+            <div class="video-column">
+                <h3 class="column-title">TransfQMix</h3>
+                <img src="../videos/transf_5v5.gif" alt="transf_3v3">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="row-title">Spread 6v6</h2>
+        <div class="video-row">
+            <div class="video-column">
+                <h3 class="column-title">QMix</h3>
+                <img src="../videos/qmix_6v6.gif" alt="qmix_3v3">
+            </div>
+            <div class="video-column">
+                <h3 class="column-title">TransfQMix</h3>
+                <img src="../videos/transf_6v6.gif" alt="transf_3v3">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
