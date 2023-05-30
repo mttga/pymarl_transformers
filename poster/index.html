@@ -8,151 +8,153 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/javascript" src="https://livejs.com/live.js"></script>
-    </head>
-    <body>
-    <div class="banner md-typeset">
     <style>
 
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 
-    * {
-        font-family: 'Open Sans', sans-serif;
-    }
+      * {
+          font-family: 'Open Sans', sans-serif;
+      }
 
+      body {
+      overflow-x: scroll;
+      }
 
-    .header {
-        background-color: #F8F8FF;
-        border: 2px solid #a9b4c2;
-        border-bottom: none; /* Remove the bottom border */
-        border-radius: 10px 10px 0 0; /* Top left and right corners are rounded */
-        padding: 20px;
-    }
+      .header {
+          background-color: #F8F8FF;
+          border: 2px solid #a9b4c2;
+          border-bottom: none; /* Remove the bottom border */
+          border-radius: 10px 10px 0 0; /* Top left and right corners are rounded */
+          padding: 20px;
+      }
 
-    .header h1 {
-        color: #2b3469;
-        margin: 0; /* This removes the default margin */
-        font-weight: 700;
-        font-size: 30px;
-    }
+      .header h1 {
+          color: #2b3469;
+          margin: 0; /* This removes the default margin */
+          font-weight: 700;
+          font-size: 30px;
+      }
 
-  .container {
-    border: 2px solid #a9b4c2;
-    background-color: #F8F8FF;
-    padding: 20px;
-    border-top: none;
-    border-radius: 0 0 10px 10px;
-    margin-bottom: 10px;
-    position: relative;
-    font-size: 17px;
-    font-weight: 500;
-    color: #2C4A67;
-    margin-top: -2px;
-}
+      .container {
+      border: 2px solid #a9b4c2;
+      background-color: #F8F8FF;
+      padding: 20px;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      margin-bottom: 10px;
+      position: relative;
+      font-size: 17px;
+      font-weight: 500;
+      color: #2C4A67;
+      margin-top: -2px;
+      }
 
-.container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 0 0 10px 10px;
-    z-index: -1;
-}
+      .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 0 0 10px 10px;
+      z-index: -1;
+      }
 
-  .container h2 {
-    font-weight: 500;
-  }
+      .container h2 {
+      font-weight: 500;
+      }
 
-  .section {
-    display: flex;
-    align-items: center;
-  }
-
-  .section-content {
-    flex: 1;
-  }
-
-  .section-image {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .section-image img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .styled-table {
-    margin: 0 auto; /* Center table on the page */
-    border-collapse: collapse;
-    font-size: 0.9em;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    border-radius: 0.8em;
-    overflow: hidden;
-  }
-
-  .styled-table thead tr {
-    background-color: #5763a6;
-    color: #ffffff;
-    text-align: center;
-  }
-
-  .styled-table th, .styled-table td {
-    text-align: center;
-    padding: 2px;
-  }
-
-  .styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-  }
-
-  .styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-  }
-
-  .table-wrapper {
-      margin: 0 10px;
-  }
-
-  .table-container {
+      .section {
       display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-  }
+      align-items: center;
+      }
 
-  .image-container {
-    display: flex;
-    justify-content: space-between;
-  }
+      .section-content {
+      flex: 1;
+      }
 
-  .image-column {
+      .section-image {
       flex: 1;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-  }
+      }
 
-  .image-column img {
+      .section-image img {
       max-width: 100%;
       height: auto;
-  }
+      }
 
-  .image-column p {
+      .styled-table {
+      margin: 0 auto; /* Center table on the page */
+      border-collapse: collapse;
+      font-size: 0.9em;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      border-radius: 0.8em;
+      overflow: hidden;
+      }
+
+      .styled-table thead tr {
+      background-color: #5763a6;
+      color: #ffffff;
       text-align: center;
-  }
+      }
 
+      .styled-table th, .styled-table td {
+      text-align: center;
+      padding: 2px;
+      }
 
-</style>
+      .styled-table tbody tr {
+      border-bottom: 1px solid #dddddd;
+      }
+
+      .styled-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+      }
+
+      .table-wrapper {
+        margin: 0 10px;
+      }
+
+      .table-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+
+      .image-container {
+      display: flex;
+      justify-content: space-between;
+      }
+
+      .image-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .image-column img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .image-column p {
+        text-align: center;
+      }
+
+    </style>
+  
+</head>
+<body>
+<div class="banner md-typeset">
 <p></head></p>
 <div style="height: 90pt;"></div>
-
-<div class="header" style="border-bottom: 2px solid #a9b4c2; border-radius: 20px 20px 20px 20px; margin-top:20px; text-align: center; align-items: center; justify-content: center; margin-bottom:-5px; width: 100%;">
+<div class="header" style="border-bottom: 2px solid #a9b4c2; border-radius: 20px 20px 20px 20px; margin-top:20px; text-align: center; align-items: center; margin-bottom:-5px; width: 100vw;">
     <div>
         <h1 style="color: #2b3469; font-weight: 700; font-size:30px;">TransfQMix: Transformers for Leveraging the Graph Structure of Multi-Agent Reinforcement Learning Problems</h1>
         <h2 style="color: #2C4A67; margin-top: 0pt; margin-bottom: 0.2em;">Matteo Gallici, Mario Martín, Ivan Masmitja</h2>
@@ -161,10 +163,11 @@
         <p style="color: #2b3469;">Contact: <a href="mailto:gallici@cs.upc.edu">gallici@cs.upc.edu</a></p>
     </div>
 </div>
-    </div>
-    <div class="body md-typeset">
-    <div class="left">
-    <div class="header" style="background-color: #2b3469; border-color:#2b3469;">
+</div>
+
+<div class="body md-typeset">
+<div class="left">
+<div class="header" style="background-color: #2b3469; border-color:#2b3469;">
   <h1 style="color: #e1e5fb;">Motivation</h1>
 </div>
 
@@ -345,47 +348,11 @@
   </div>
 
 </div>
+</div>
+    
+<div class="right">
 
-<!--
-  <div class="section">
-    <div class="section-image">
-      <img src="../images/transf_agent.svg">
-    </div>
-    <div class="section-content">
-      <h2>Transformer Agent</h2>
-      <p>Similar architecture to UPDET, but:</p>
-      <ul>
-        <li>Q-Values are derived from the agent hidden state, reinforcing recurrent passing of gradient.</li>
-        <li>Separate output layer used for Policy Decoupling.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="section">
-    <div class="section-image">
-      <img src="../images/transf_mixer.svg">
-    </div>
-    <div class="section-content">
-      <h2>Transformer Mixer</h2>
-      <p>Transformer hypernetwork:</p>
-      <ul>
-        <li>Agents hidden states:
-          <ul>
-            <li>\(W_1\): q-values embedding</li>
-          </ul>
-        </li>
-        <li>Recurrent mechanism:
-          <ul>
-            <li>\(b1, W2, b2\): projection over \(Q_{tot}\)</li>
-          </ul>
-        </li>
-        <li>State embedder: environment reasoning</li>
-        </li>
-      </ul>
-    </div>
-  -->
-    </div>
-    <div class="right">
-    <div class="header" style="background-color: #0000;">
+<div class="header" style="background-color: #0000;">
   <h1>Experiments</h1>
 </div>
 
@@ -670,8 +637,8 @@
     </div>
   </div>
 </div>
-    </div>
-    </div>
-    </body>
-    </html>
+</div>
+</div>
+</body>
+</html>
     
