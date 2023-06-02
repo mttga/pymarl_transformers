@@ -2,7 +2,7 @@
 marp: true
 theme: 
 
-class:
+title: TransfQMix Presentation
 
 #header: 'Header content'
 #footer: "AAMAS '23, 1st June 2023"
@@ -87,7 +87,7 @@ div.twocols p.break {
 KEMLG research, Universitat Polítecnica de Catalunia, and ICM-CISCL.
 AAMAS 2023
 
-London, 1st June 2023
+London, 2nd June 2023
 
 <br>
 
@@ -109,20 +109,20 @@ London, 1st June 2023
 <!-- paginate: true -->
 
 
-## What are exactly observations and states in MARL?
+## How are we using information in MARL?
 
 
-- State-of-the-art approaches in MARL (MADDPG, VDN, QTran, QMix, QPlex, MAPPO, DICG) **focus on the learning architecture.** 
+- State-of-the-art approaches in MARL (MADDPG, VDN, QTran, QMix, QPlex, MAPPO, DICG) **focus on the learning model.** 
 
-- No looking into observations and states: concatenations of features feeded to NNs.
+- Observations and State vectors are gathered from environments and input to function approximators. 
 
-- Where those features come from?
+- How is this information structured? Are we using it effectively?
 
 ---
 
 ## Information Channels
 
-- Information usually come from multiple sources: *observed entities, different sensors, communication channels.*
+- Information usually comes from multiple sources: *observed entities, different sensors, communication channels.*
 - Agents can differentiate between information channels, because they occupy always the **same vector positions**. 
 
 ![bg right fit](../images/trad_obs_vector.svg)
@@ -132,7 +132,7 @@ London, 1st June 2023
 
 ## Entities features
 
-- Often, a subset of **identical** features describe different the observed entities.
+- Often, a subset of **identical** features describe the observed entities.
 - **This is a graph structure!**
   - Vertices -> entities features
   - Edges -> ?
@@ -145,7 +145,6 @@ London, 1st June 2023
 ## Observations and State Matrices
 
 - We reformulate the entire MARL problem in terms of graphs.
-- The inputs to NNs are well-structured vertex features.
 - The goal of the NNs is to learn the **latent coordination graph**.
 
 <div class="row">
@@ -234,44 +233,6 @@ Describe the complete graph of the environment at time step $t$.
 
 
 --- 
-
-## Additional features
-
-- Some information get lost when dropping concatenation:
-  - which of vertices represent "me"? 
-  - which of the vertices are "collaborative agents"?
-- Easier solution are flags into the vertex features:
-
-<br>
-
-<div class="row">
-
-<div class="column">
-
-$$
-\begin{eqnarray}        
-f_{i,\texttt{IS\_SELF}}^a =         \begin{cases}            1, & \text{if } i = a\\            0, & \text{otherwise.}        \end{cases}
-\end{eqnarray}
-$$
-
-</div>
-
-<div class="column">
-
-$$
-\begin{eqnarray}        
-f_{i, \texttt{IS\_AGENT}}^a =         
-\begin{cases}            1, & \text{if } i \in A\\            0, & \text{otherwise}        \end{cases}    
-\end{eqnarray}
-$$
-
-</div>
-
-
-
-
-
---- 
 <!-- class: invert -->
 <!-- paginate: false -->
 # 2. TransfQMix
@@ -294,8 +255,8 @@ $$
 ![bg right fit](../images/transf_agent.svg)
 
 Similar architecture to UPDET, but:
-- Q-Values are derived from the agent hidden state, reinforcing reccurent passing of gradient.
-- Separete output layer used for Policy Decoupling.
+- Q-Values are derived from the agent hidden state, reinforcing recurrent passing of gradient.
+- Separate output layer used for Policy Decoupling.
 
 ---
 ## Transformer Mixer
@@ -329,7 +290,6 @@ Setup:
 - Observation entity features: $pos_x$, $pos_y$
 - State entity features: position+velocity.
 - Extended to 6 agents (normally only 3)
-- Reward: *sum of minimum distances from each landmark to any agent*.
 - Reported evaluation metric: **percentage of landmarks occupied** at the conclusion of an episode (**POL**)
 
 ![bg right fit](../videos/5v5.gif)
@@ -377,8 +337,8 @@ Spread 6v6
 ---
 ## StarCraft 2
 Setup:
-- Original state and observations already used a graph-based observation and state
-- Reported results for the hardest maps in literature.
+- Original state and observations already implicitly sed a graph-based observation and state
+- Reported results for the hardest maps.
 
 ![bg right 80%](../images/sc2.gif)
 
@@ -553,33 +513,26 @@ SC2: **learning can be speeded up by transferring a learned policy.**
 ---
 <!-- paginate: false -->
 <!-- class: invert -->
-# 6. Summary and Future Work
+# 6. Conclusions
 
 ---
 <!-- paginate: true -->
-## Key Contributions: 
+## Conclusions
 
-
-- Graph-based formalization of Multi-Agent Reinforcement Learning (MARL) coordination problems.
-- New QMix-like architecture fully based on transformers.
-- Promising results in transfer learning, zero-shot transfer, and curriculum learning.
-
----
-## Future Work:
-
-- Explore TransfQMix's generalization capabilities by integrating several tasks into a single learning pipeline (training same agents to solve all SC2 tasks).
-- Examining the feasibility of transferring coordination policies between different MARL domains.
-- Influence of multi-head self-attention on coordination reasoning will be investigated more thoroughly.
-
-
+- Take a look at how you prepare the inputs for your NNs!
+- Take profit of the graph structure of MARL problems.
+- Enable graph reasoning in NNs.
+- Explore multi-agent transfer learning. 
 
 ---
 <!-- paginate: false -->
-<!-- class: -->
-
 
 
 # Thank you!
+
+<div class="row">
+
+<div class="column">
 
 ### Acknowledgments:
 -  EU’s Horizon 2020 research and innovation programme under the Marie Skłodowska-Curie grant agreement No 893089.
@@ -587,8 +540,62 @@ SC2: **learning can be speeded up by transferring a learned policy.**
 - David and Lucile Packard Foundation. 
 - Barcelona Supercomputing Center in collaboration with the HPAI group.
 
+</div>
+
+<div class="column">
+
+<center>
+
+## Find out more!
+
+<img src="../images/home_qr.svg" style="width: 60%">
+
+### Poster: 22
+
+</center>
+</div>
+</div>
+
+
 ---
 <!-- paginate: false -->
+
+
+## Additional features
+
+- Some information get lost when dropping concatenation:
+  - which of vertices represent "me"? 
+  - which of the vertices are "collaborative agents"?
+- Easier solution are flags into the vertex features:
+
+<br>
+
+<div class="row">
+
+<div class="column">
+
+$$
+\begin{eqnarray}        
+f_{i,\texttt{IS\_SELF}}^a =         \begin{cases}            1, & \text{if } i = a\\            0, & \text{otherwise.}        \end{cases}
+\end{eqnarray}
+$$
+
+</div>
+
+<div class="column">
+
+$$
+\begin{eqnarray}        
+f_{i, \texttt{IS\_AGENT}}^a =         
+\begin{cases}            1, & \text{if } i \in A\\            0, & \text{otherwise}        \end{cases}    
+\end{eqnarray}
+$$
+
+</div>
+
+---
+
+
 
 ## Ablation
 
@@ -613,3 +620,11 @@ Spread: 6v6
 
 </div>
 </center>
+
+---
+## Future Work:
+
+- Explore TransfQMix's generalization capabilities by integrating several tasks into a single learning pipeline (training same agents to solve all SC2 tasks).
+- Examining the feasibility of transferring coordination policies between different MARL domains.
+- Influence of multi-head self-attention on coordination reasoning will be investigated more thoroughly.
+
