@@ -21,7 +21,7 @@ You can then run any of the available models with the run.sh script: ```bash run
 
 ```bash
 # run StarCraft2 experiment
-python3 src/main.py --config=transf_qmix --env-config=sc2
+python3 src/main.py --config=transf_qmix_smac --env-config=sc2
 # run Spread experiment
 python3 src/main.py --config=transf_qmix --env-config=mpe/spread
 ```
