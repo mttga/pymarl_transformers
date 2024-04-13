@@ -3,6 +3,8 @@
 [![Poster](https://img.shields.io/badge/View-Poster-008037.svg)](https://mttga.github.io/pymarl_transformers/poster/index.html)
 [![Presentation](https://img.shields.io/badge/View-Presentation-FFD700.svg)](https://mttga.github.io/pymarl_transformers/presentation/index.html)
 
+### ‼️ TransfQMix is now officially supported in [JaxMARL](https://github.com/FLAIROx/JaxMARL/tree/main/baselines/QLearning)
+
 # TransfQMix
 
 Official repository of the [AAMAS 2023](https://aamas2023.soton.ac.uk/) paper: [TransfQMix: Transformers for Leveraging the Graph Structure of
